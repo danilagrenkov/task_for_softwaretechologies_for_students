@@ -46,13 +46,13 @@ public class Money {
     @Override
     public int hashCode() {
         long hashBase = (amount == null ? 10000 : amount.setScale(4, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(10000)).longValue());
-        int typeCode = switch (type) {
+        int typeCode = (type != null) ? switch (type) {
             case USD -> 1;
             case EURO -> 2;
             case RUB -> 3;
             case KRONA -> 4;
             default -> 5;
-        };
+        } : 5; // Если type равно null, возвращаем код 5
         long hashValue = hashBase + typeCode;
 
         return hashValue >= (MAX_VALUE - 5) ? MAX_VALUE : (int) hashValue;
@@ -86,3 +86,4 @@ public class Money {
         System.out.println(money.equals(money1));
     }
 }
+
