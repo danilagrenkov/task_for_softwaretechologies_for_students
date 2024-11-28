@@ -1,30 +1,29 @@
 package org.softwaretechnologies;
 
+import java.util.List;
+import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 import org.softwaretechnologies.animals.AnimalType;
-
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-class ZooTest {
-
+class ZooTest
+{
     @Test
-    void soundAllAnimalsSortByName() {
-        Zoo zoo = new Zoo();
+    void soundAllAnimalsSortByName()
+    {
+        org.softwaretechnologies.Zoo zoo = new org.softwaretechnologies.Zoo();
 
-        zoo.addAnimal(AnimalFactory.createAnimal("zuzu", AnimalType.CAT));
-        zoo.addAnimal(AnimalFactory.createAnimal("abu", AnimalType.COW));
-        zoo.addAnimal(AnimalFactory.createAnimal("bob", AnimalType.DOG));
-        zoo.addAnimal(AnimalFactory.createAnimal("yoyo", AnimalType.CAT));
+        zoo.addAnimal(org.softwaretechnologies.AnimalFactory.createAnimal("zuzu", AnimalType.CAT));
+        zoo.addAnimal(org.softwaretechnologies.AnimalFactory.createAnimal("abu", AnimalType.COW));
+        zoo.addAnimal(org.softwaretechnologies.AnimalFactory.createAnimal("bob", AnimalType.DOG));
+        zoo.addAnimal(org.softwaretechnologies.AnimalFactory.createAnimal("yoyo", AnimalType.CAT));
 
         List<String> sounds = zoo.soundAllAnimalsSortByName();
         List<String> expected = Arrays.asList("moo", "woof", "meow", "meow");
+
         int i = 0;
-        assertNotEquals(0, sounds.size());
-        for (String sound : sounds) {
+        for (String sound : sounds)
+        {
             assertEquals(expected.get(i), sound);
             i++;
         }

@@ -1,13 +1,16 @@
 package org.softwaretechnologies.animals;
 
-public abstract class Animal {
+public abstract class Animal
+{
     private final String name;
 
-    public Animal(String name) {
+    public Animal(String name)
+    {
         this.name = name;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
