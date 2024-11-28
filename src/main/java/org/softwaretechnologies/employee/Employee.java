@@ -7,18 +7,16 @@ package org.softwaretechnologies.employee;
  * Manager: если месяц четный, то baseSalary, иначе baseSalary/2
  * Programmer: всегда baseSalary
  */
-public abstract class Employee {
+public abstract class Employee
+{
     protected String name;
     protected int baseSalary;
 
-    protected Employee(String name, int baseSalary) {
+    protected Employee(String name, int baseSalary)
+    {
         this.name = name;
         this.baseSalary = baseSalary;
     }
 
     public abstract int getMonthSalary(int month);
-
-    public String getName() {
-        return name;
-    }
 }
