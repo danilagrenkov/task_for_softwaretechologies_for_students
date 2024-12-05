@@ -2,57 +2,82 @@ package org.softwaretechnologies;;
 
 import java.util.Optional;
 
-public class ExceptionTask
-{
-    public static void printMessage()
-    {
-        System.out.println("Вызвана функция printMessage");
-        throwRuntimeException();
+public class ExceptionTask {
+    /**
+     * Исправьте функцию printMessage не убирая вызов функции throwRuntimeException.
+     * Функция printMessage должна выводить на экран сообщение:
+     Вызвана функция printMessage
+     */
+    public static void printMessage() {
+        try {
+            throwRuntimeException();
+        } catch (Exception s){
+            System.out.println("Вызвана функция printMessage");
+        }
+        // TODO: реализуйте вышеуказанную функцию
+
     }
 
-    public static void printMessage2() throws Exception
-    {
-        System.out.println("Вызвана функция printMessage2");
-        throwCatchableException();
+    /**
+     * Исправьте функцию printMessage2 не убирая вызов функции throwCatchableException.
+     * Функция printMessage должна выводить на экран сообщение:
+     Вызвана функция printMessage2
+     */
+    public static void printMessage2() throws Exception {
+        try {
+            throwCatchableException();
+        } catch (Exception s){
+            System.out.println("Вызвана функция printMessage2");
+        }
+        // TODO: реализуйте вышеуказанную функцию
     }
 
-    private static void throwCatchableException() throws Exception
-    {
+    private static void throwCatchableException() throws Exception {
         throw new Exception();
     }
 
-    private static void throwRuntimeException()
-    {
+    private static void throwRuntimeException() {
         throw new RuntimeException();
     }
 
-    public static int divide(int dividend, int divisor) throws DivideOnNullException
-    {
-        if (divisor == 0)
-        {
+    /**
+     * Если делитель равен 0, то инициируйте DivideOnNullException
+     * @param dividend делимое
+     * @param divisor делитель
+     * @return dividend/divisor
+     * @throws DivideOnNullException если divisor равен 0
+     */
+    public static int divide(int dividend, int divisor) throws DivideOnNullException {
+
+        // TODO: реализуйте вышеуказанную функцию
+        if (divisor == 0){
             throw new DivideOnNullException();
         }
-
-        return dividend / divisor;
+        return dividend/divisor;
     }
 
-    public static Optional<String> mergeStrings(String first, String second)
-    {
-        if (first == null && second == null)
-        {
+    /**
+     * Исправьте возможные ошибки в функции.
+     * Функция возвращает конкатенацию двух строк: наибольшую из двух строк с другой строкой.
+     * Если один из параметров null, то должен возвращаться Optional со значением другой строки (не null).
+     * Если обе строки равны null, то должен возвращаться пустой Optional.
+     * @param first первая строка
+     * @param second вторая строка
+     * @return конкатенацию двух строк: кротчайшую из двух строк с другой строкой.
+     */
+    public static Optional<String> mergeStrings(String first, String second) {
+        // TODO: реализуйте вышеуказанную функцию
+        if (first == null && second == null){
             return Optional.empty();
-        }
-
-        if (first == null)
-        {
+        } else if(first == null){
             return Optional.of(second);
-        }
-
-        if (second == null)
-        {
+        } else if(second == null){
             return Optional.of(first);
         }
+
+
 
         return Optional.of(first.length() > second.length() ? first + second : second + first);
     }
 }
+
